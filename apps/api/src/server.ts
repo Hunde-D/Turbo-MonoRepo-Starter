@@ -6,7 +6,6 @@ import cookieParser from "cookie-parser";
 import morgan from "morgan";
 
 import indexRouter from "./routes/index";
-import usersRouter from "./routes/users";
 
 export const createServer = (): Express => {
   const app = express();
@@ -21,7 +20,7 @@ export const createServer = (): Express => {
     .use(express.static(path.join(__dirname, "public")));
 
   // routes
-  app.use("/", indexRouter).use("/users", usersRouter);
+  app.use("/", indexRouter);
 
   // catch 404 and forward to error handler
   app.use((req, res, next) => {
